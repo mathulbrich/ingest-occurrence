@@ -1,0 +1,6 @@
+_classpath.xml
+_project.xml
+target/
+.settings/
+.project
+.classpath
