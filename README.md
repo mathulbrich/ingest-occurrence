@@ -20,7 +20,7 @@ $ sh $ES_HOME/bin/elasticsearch-plugin install file:///<path_of_plugin_zip_file>
       "occurrence": {
         "field": "my_text_field",
         "target_field": "matches_founded",
-        "match_field": "DOC-[1-9]{3}"
+        "regexp": "DOC-[1-9]{3}"
       }
     
     }
