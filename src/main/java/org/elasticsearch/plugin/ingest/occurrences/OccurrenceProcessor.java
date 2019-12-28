@@ -34,7 +34,7 @@ public final class OccurrenceProcessor extends AbstractProcessor {
     /**
      * 
      */
-    private final String regexp;
+    private final String matchField;
     
     /**
      * 
@@ -43,23 +43,23 @@ public final class OccurrenceProcessor extends AbstractProcessor {
      * @param targetField
      * @param regex
      */
-    OccurrenceProcessor(String tag, String field, String targetField, String regexp) {
+    OccurrenceProcessor(String tag, String field, String targetField, String matchField) {
         super(tag);
         this.field = field;
         this.targetField = targetField;
-        this.regexp = regexp;
+        this.matchField = matchField;
     }
 
     @Override
     public IngestDocument execute(IngestDocument ingestDocument) throws Exception {
         
-        if (ingestDocument.hasField(regexp)) {
+        if (ingestDocument.hasField(matchField)) {
             
             String fieldValue = ingestDocument.getFieldValue(field, String.class);
-            String regexpValue = ingestDocument.getFieldValue(regexp, String.class);
+            String matchFieldValue = ingestDocument.getFieldValue(matchField, String.class);
             
             OccurrenceMatcher matcher = new OccurrenceMatcher();
-            Set<String> matches = matcher.findMatches(fieldValue, Pattern.compile(regexpValue));
+            Set<String> matches = matcher.findMatches(fieldValue, Pattern.compile(matchFieldValue));
 
             ingestDocument.setFieldValue(targetField, matches);
             
@@ -84,8 +84,8 @@ public final class OccurrenceProcessor extends AbstractProcessor {
 		public Processor create(Map<String, Processor.Factory> processorFactories, String tag, Map<String, Object> config) throws Exception {
 			String field = readStringProperty(OccurrenceProcessor.TYPE, tag, config, "field");
 	        String targetField = readStringProperty(OccurrenceProcessor.TYPE, tag, config, "target_field");
-	        String regexp = readStringProperty(OccurrenceProcessor.TYPE, tag, config, "regexp");
-	        return new OccurrenceProcessor(tag, field, targetField, regexp);
+	        String matchField = readStringProperty(OccurrenceProcessor.TYPE, tag, config, "match_field");
+	        return new OccurrenceProcessor(tag, field, targetField, matchField);
 		}
     	
     }
