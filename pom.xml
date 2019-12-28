@@ -15,12 +15,14 @@
 	</properties>
 
 	<dependencies>
+		<!-- Project main dependencies -->
 		<dependency>
 			<groupId>org.elasticsearch</groupId>
 			<artifactId>elasticsearch</artifactId>
 			<version>${elasticsearch.version}</version>
 		</dependency>
 
+		<!-- Test only dependencies -->
 		<dependency>
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest</artifactId>
@@ -31,10 +33,9 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>${junit.version}</scope>
+			<version>${junit.version}</version>
+			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 
 </project>
