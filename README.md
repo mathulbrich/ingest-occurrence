@@ -37,7 +37,7 @@ $ sh $ES_HOME/bin/elasticsearch-plugin install file:///<path_of_plugin_zip_file>
 ```json
 {
     "my_text_field": "This is just an example of text field with test-01. And with test-02.",
-    "regexp": "test-\d+"
+    "regexp": "test-\\d+"
 }
 ```
 
