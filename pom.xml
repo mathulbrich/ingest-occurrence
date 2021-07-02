@@ -9,7 +9,7 @@
 	<properties>
 		<maven.compiler.source>1.10</maven.compiler.source>
 		<maven.compiler.target>1.10</maven.compiler.target>
-		<elasticsearch.version>6.8.3</elasticsearch.version>
+		<elasticsearch.version>6.8.15</elasticsearch.version>
 		<hamcrest.version>2.1</hamcrest.version>
 		<junit.version>4.12</junit.version>
 	</properties>
